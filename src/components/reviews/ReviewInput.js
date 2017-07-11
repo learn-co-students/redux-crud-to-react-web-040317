@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Reviews from './Reviews';
 import cuid from 'cuid';
-export const cuidFn = cuid;
 
 class ReviewInput extends Component {
 
@@ -22,7 +21,7 @@ class ReviewInput extends Component {
   handleOnSubmit(event) {
     event.preventDefault();
     this.props.addReview({
-      id: cuidFn(),
+      id: cuid(),
       text: this.state.text,
       restaurantId: this.props.restaurantId
     })

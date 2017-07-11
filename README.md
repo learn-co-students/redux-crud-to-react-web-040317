@@ -2,18 +2,20 @@
 
 ## Objectives
 
-Implement a yelp like application with restaurants and reviews.
+Implement a Yelp-like application with restaurants and reviews.
 
 ## Overview
 
-In this lab, we will be practice creating and removing various items. We are working with two different resources with each restaurant having many reviews and reviews belonging to a restaurant.
+This exercise is based off a Redux lab some of you may have completed. Instead of passing down props, this lab was structured passing down a store and dispatching actions. To understand why we use Redux and what it abstracts away, you and your partner will rewrite this as React.
+
+The code in the master branch is Redux solution to the lab. We want you to refactor this into into a working React app which doesn't use a store, reducers or dispatched actions.
+
 
 ## Instructions
 
-1. You'll first need to create a __RestaurantInput__ component that allows a user to create new restaurants. You will then need a __Restaurants__ component that displays a list of restaurant, and a __Restaurant__ component which is responsible for each restaurant. Users should also be able to delete restaurants, and to implement that you will need to give each restaurant an id.  
+1. First discuss the components and how they are related with your partner. What components hold state and what components need access to that state as props? User the reducers as a guide to tell you how state is structured. Use dispatched actions to tell you what components need access to state as props.
 
-> Note To implement ids, it may be worth integrating another library in the reducer called ccuid. You can see that we already imported it in the reducer file for you.
-The library will generate a unique id for you:
+2. For the delete function to work, you will need to give each restaurant an id at the time you create it. To make this simple, it may be worth integrating another library into the components where you create the Review and Restaurant objects. You can set an id to the return value of this function.
 
   ```javascript
   import cuid from 'cuid';
@@ -21,5 +23,3 @@ The library will generate a unique id for you:
   console.log(cuid());
   // ch72gsb320000udocl363eofy
   ```
-
-2. You will also need to create a reviews resource. Users should be able to create a review that is specifically associated with the related restaurant, and those reviews should be displayed underneath the related restaurant. Users should also be able to delete a specific review.  
