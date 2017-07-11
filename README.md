@@ -8,7 +8,7 @@ Implement a Yelp-like application with restaurants and reviews.
 
 This exercise is based off a Redux lab some of you may have completed. Instead of passing down props, this lab was structured passing down a store and dispatching actions. To understand why we use Redux and what it abstracts away, you and your partner will rewrite this as React.
 
-The code in the master branch is Redux solution to the lab. We want you to refactor this into into a working React app which doesn't use a store, reducers or dispatched actions.
+The code in the Redux branch is Redux solution to the lab. We want you to refactor this into into a working React app which doesn't use a store, reducers or dispatched actions.
 
 
 ## Instructions
