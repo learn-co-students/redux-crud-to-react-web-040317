@@ -4,12 +4,9 @@ import ReviewInput from '../reviews/ReviewInput';
 class Restaurant extends Component {
 
   handleOnClick() {
-    this.props.store.dispatch({
-      type: 'DELETE_RESTAURANT',
-      id: this.props.restaurant.id
-    });
+    this.props.deleteRestaurant(this.props.restaurant)
   }
-  
+
   render() {
     const { text, id } = this.props.restaurant;
 
@@ -18,9 +15,12 @@ class Restaurant extends Component {
         <li>
           {text}
           <button onClick={() => this.handleOnClick()}> X </button>
-          <ReviewInput 
-            store={this.props.store}
-            restaurantId={id} />
+          <ReviewInput
+            reviews={this.props.reviews}
+            addReview={this.props.addReview}
+            deleteReview={this.props.deleteReview}
+            restaurantId={id}
+          />
         </li>
       </div>
     );

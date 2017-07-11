@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Reviews from './Reviews';
+import cuid from 'cuid';
+export const cuidFn = cuid;
 
 class ReviewInput extends Component {
 
@@ -19,13 +21,11 @@ class ReviewInput extends Component {
 
   handleOnSubmit(event) {
     event.preventDefault();
-    this.props.store.dispatch({
-      type: 'ADD_REVIEW',
-      review: {
-        text: this.state.text,
-        restaurantId: this.props.restaurantId,
-      },
-    });
+    this.props.addReview({
+      id: cuidFn(),
+      text: this.state.text,
+      restaurantId: this.props.restaurantId
+    })
     this.setState({
       text: '',
     });
@@ -36,15 +36,17 @@ class ReviewInput extends Component {
      <div>
         <form onSubmit={(event) => this.handleOnSubmit(event)} >
           <label>Add Review</label>
-          <input 
+          <input
             type="text"
             value={this.state.text}
             onChange={(event) => this.handleOnChange(event)} />
           <input type="submit" />
         </form>
-        <Reviews 
-          store={this.props.store} 
-          restaurantId={this.props.restaurantId} />
+        <Reviews
+          reviews={this.props.reviews}
+          restaurantId={this.props.restaurantId}
+          deleteReview={this.props.deleteReview}
+        />
       </div>
     );
   }
